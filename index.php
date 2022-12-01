@@ -1,6 +1,7 @@
 <?php
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
+$user_name = 'Рональд Курочкин'; // укажите здесь ваше имя
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -29,7 +30,7 @@ $show_complete_tasks = rand(0, 1);
 
           <div class="main-header__side-item user-menu">
             <div class="user-menu__data">
-              <p>Рональд Курочкин</p>
+              <p><?php echo $user_name; ?></p>
 
               <a href="#">Выйти</a>
             </div>
