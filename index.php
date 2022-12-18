@@ -51,6 +51,30 @@ $tasks = [
   ],
 ];
 
+// два аргумента:
+// список задач в виде массива;
+// название проекта.
+function task_counter($atr1, $atr2) {
+
+  print($atr1);
+  print($atr2);
+  foreach ($atr1 as $item) {
+    $tasks_sum = 0;
+    if($item["category"] == $atr2) {
+      $tasks_sum = ++$tasks_sum;
+    }
+  };
+  // возвращает число задач по проекту
+  result($tasks_sum);
+};
+// print($project_categories["inbox"]);
+// print($task_sum);
+// print task_counter($tasks, $project_categories["inbox"]);
+// $tasks_sum = 0;
+// $tasks_sum = ++$tasks_sum;
+// result($tasks_sum);
+echo  task_counter($tasks, $project_categories);
+
 
 
 ?>
