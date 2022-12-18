@@ -2,6 +2,57 @@
 // показывать или нет выполненные задачи
 $show_complete_tasks = rand(0, 1);
 $user_name = 'Рональд Курочкин'; // укажите здесь ваше имя
+
+// ассоциативный массив категорий 
+$project_categories = array(
+  "inbox"=>"Входящие",
+  "study"=>"Учеба",
+  "work"=>"Работа",
+  "housework"=>"Домашние дела",
+  "car"=>"Авто",
+);
+
+$tasks = [
+  [
+    "name" => "Собеседование в IT компании",
+    "date" => "01.12.2019",
+    "category" => "work",
+    "status" => false,
+  ],
+  [
+    "name" => "Выполнить тестовое задание",
+    "date" => "25.12.2019",
+    "category" => "work",
+    "status" => false,
+  ],
+  [
+    "name" => "Сделать задание первого раздела",
+    "date" => "21.12.2019",
+    "category" => "study",
+    "status" => true,
+  ],
+  [
+    "name" => "Встреча с другом",
+    "date" => "22.12.2019",
+    "category" => "inbox",
+    "status" => false,
+  ],
+  [
+    "name" => "Купить корм для кота",
+    "date" => null,
+    "category" => "housework",
+    "status" => false,
+  ],
+  [
+    "name" => "Заказать пиццу",
+    "date" => null,
+    "category" => "housework",
+    "status" => false,
+  ],
+];
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -44,10 +95,13 @@ $user_name = 'Рональд Курочкин'; // укажите здесь в�
 
           <nav class="main-navigation">
             <ul class="main-navigation__list">
+              <!-- Выводим список проектов  -->
+              <?php foreach ($project_categories as $item): ?>
               <li class="main-navigation__list-item">
-                <a class="main-navigation__list-item-link" href="#">Название проекта</a>
+                <a class="main-navigation__list-item-link" href="#"><?php echo $item; ?></a>
                 <span class="main-navigation__list-item-count">0</span>
               </li>
+              <?php endforeach; ?>
             </ul>
           </nav>
 
