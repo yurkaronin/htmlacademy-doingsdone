@@ -135,6 +135,29 @@ $tasks = [
           </div>
 
           <table class="tasks">
+
+            <!-- выводим задачи  -->
+            <?php foreach ($tasks as $item): 
+          
+          if ($show_complete_tasks == true && $item["status"] == true) {
+            continue;
+            } else { ?>
+            <tr class="tasks__item task">
+              <td class="task__select">
+                <label class="checkbox task__checkbox">
+                  <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1"
+                    <?php if($item["status"] == true): ?>checked<?php endif; ?>>
+                  <span class="checkbox__text"><?php echo $item["name"]; ?></span>
+                </label>
+              </td>
+
+              <td class="task__date"><?php echo $item["date"]; ?></td>
+
+              <td class="task__date"></td>
+            </tr>
+            <?php };
+           endforeach; ?>
+
             <tr class="tasks__item task">
               <td class="task__select">
                 <label class="checkbox task__checkbox">
