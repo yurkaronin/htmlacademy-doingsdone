@@ -4,13 +4,13 @@ $show_complete_tasks = rand(0, 1);
 $user_name = 'Рональд Курочкин'; // укажите здесь ваше имя
 
 // ассоциативный массив категорий 
-$project_categories = array(
+$project_categories = [
   "inbox"=>"Входящие",
   "study"=>"Учеба",
   "work"=>"Работа",
   "housework"=>"Домашние дела",
   "car"=>"Авто",
-);
+];
 
 $tasks = [
   [
@@ -51,41 +51,20 @@ $tasks = [
   ],
 ];
 
-// два аргумента:
-// список задач в виде массива;
-// название проекта.
-function task_counter($atr1, $atr2) {
+function task_counter($tasks, $code) {
   // Хранит число элементов подходящих под параметры 
   $tasks_sum = 0;
   // проходится по всем элементам 
-  foreach ($atr1 as $item) {
+  foreach ($tasks as $task) {
     // и если условие соответствует увеличивает число на 1 
-    if($item["category"] == $atr2) {
+    if($task["category"] == $code) {
       $tasks_sum++;
     };
     // возвращает итоговое число 
-    return $tasks_sum;
   };
-
+    return $tasks_sum;
 };
 
-
-// task_counter($tasks, $tasks);
-// echo $tasks_sum;
-// echo " есть";
-
-
-  // print_r($tasks[0]["category"]);
-  // print_r($tasks[1]["category"]);
-  // print_r($tasks[2]["category"]);
-
-  foreach($tasks as $item) {
-    // print($item["category"]);
-    // print('<br>');
-    $project_name = $item["category"];
-    $result = task_counter($tasks, $project_name);
-    echo($result);
-  };
   ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -129,10 +108,13 @@ function task_counter($atr1, $atr2) {
           <nav class="main-navigation">
             <ul class="main-navigation__list">
               <!-- Выводим список проектов  -->
-              <?php foreach ($project_categories as $item): ?>
+              <?php foreach ($project_categories as $code => $name): ?>
               <li class="main-navigation__list-item">
-                <a class="main-navigation__list-item-link" href="#"><?php echo $item; ?></a>
-                <span class="main-navigation__list-item-count">0</span>
+                <a class="main-navigation__list-item-link" href="#"><?php echo $name; ?></a>
+                <span class="main-navigation__list-item-count">
+                  <!-- тут выводим кол-во  -->
+                  <?php echo(task_counter($tasks, $code)); ?>
+                </span>
               </li>
               <?php endforeach; ?>
             </ul>
