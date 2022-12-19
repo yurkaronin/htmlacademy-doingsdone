@@ -4,16 +4,16 @@ $show_complete_tasks = rand(0, 1);
 $user_name = 'Рональд Курочкин'; // укажите здесь ваше имя
 
 // массив проектов 
-$project_categories = [
+$project_categories = array(
   "inbox"=>"Входящие",
   "study"=>"Учеба",
   "work"=>"Работа",
   "housework"=>"Домашние дела",
   "car"=>"Авто",
-];
+);
 
 // массив заадч 
-$tasks = [
+$tasks = array(
   [
     "name" => "Собеседование в IT компании",
     "date" => "01.12.2019",
@@ -50,7 +50,7 @@ $tasks = [
     "category" => "housework",
     "status" => false,
   ],
-];
+);
 
 /* 
 * Функция должна принимать два аргумента:
