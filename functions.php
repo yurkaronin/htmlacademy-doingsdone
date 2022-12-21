@@ -17,4 +17,31 @@
     };
       return $tasks_sum;
   };
+
+  // $date - дата закрытия торгов по лоту 
+  // $res - функция возвращает массив 
+  
+  function get_dt_range($date) {
+
+    date_default_timezone_set('Europe/Moscow');
+
+
+    
+
+    // $ny_date = strtotime("01.01.2222");
+
+    if($cur_date < $final_date) {
+      $hours = 0;
+      print "Всё!";
+    } else {
+      $diff = date_diff($final_date, $cur_date);
+      $format_diff = date_interval_format($diff, "%d %H %i");
+      $arr = explode(" ", $format_diff);
+      $hours = $arr[0] * 24 + $arr[1] + (intval($arr[2] / 60));
+      $hours = $hours + $minutes;
+      print($hours);
+    }
+
+    return $hours;
+  };
 ?>

@@ -12,25 +12,25 @@ $project_categories = array(
 $tasks = array(
   [
     "name" => "Собеседование в IT компании",
-    "date" => "01.12.2019",
+    "date" => "2023-11-12",
     "category" => "work",
     "status" => false,
   ],
   [
     "name" => "Выполнить тестовое задание",
-    "date" => "25.12.2019",
+    "date" => "2021-11-12",
     "category" => "work",
     "status" => false,
   ],
   [
     "name" => "Сделать задание первого раздела",
-    "date" => "21.12.2019",
+    "date" => "2023-11-12",
     "category" => "study",
     "status" => true,
   ],
   [
     "name" => "Встреча с другом",
-    "date" => "22.12.2019",
+    "date" => "2021-11-12",
     "category" => "inbox",
     "status" => false,
   ],
