@@ -1,10 +1,16 @@
 <h2 class="content__main-heading">Список задач</h2>
 <?php 
-$final_date = strtotime($date);
-$cur_date = date_create("now");
+// $final_date = strtotime($date);
+// $cur_date = date_create("now");
 // $cur_date_transform = strtotime($cur_date);
 
-echo $final_date; ?>
+// echo $final_date; 
+foreach ($tasks as $item) {
+  deadline_checker($item["date"]);
+};
+
+
+?>
 
 <form class="search-form" action="index.php" method="post" autocomplete="off">
   <input class="search-form__input" type="text" name="" value="" placeholder="Поиск по задачам">
@@ -32,11 +38,13 @@ echo $final_date; ?>
 
   <!-- выводим задачи  -->
   <?php foreach ($tasks as $item): 
-          
+          $rec = deadline_checker($item["date"]);
           if ($show_complete_tasks == true && $item["status"] == true) {
             continue;
             } else { ?>
-  <tr class="tasks__item task <?php if(intval($hours[0]) < 24): ?>task--important<?php endif; ?>">
+  <tr class="tasks__item task <?php 
+  
+  if($rec <= 24): ?>task--important<?php endif; ?>">
     <td class="task__select">
       <label class="checkbox task__checkbox">
         <input class="checkbox__input visually-hidden task__checkbox" type="checkbox" value="1"
@@ -48,7 +56,7 @@ echo $final_date; ?>
     <td class="task__date"><?php echo $item["date"]; ?></td>
 
     <td class="task__date">
-    <?php $res = get_dt_range($item["date"]); ?>
+    осталось часов: <?php echo($rec);?>
     </td>
   </tr>
   <?php };

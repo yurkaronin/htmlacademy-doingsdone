@@ -8,11 +8,11 @@ $project_categories = array(
   "car"=>"Авто",
 );
 
-// массив заадч 
+// массив задач 
 $tasks = array(
   [
     "name" => "Собеседование в IT компании",
-    "date" => "2023-11-12",
+    "date" => "2022-12-21",
     "category" => "work",
     "status" => false,
   ],
@@ -24,13 +24,13 @@ $tasks = array(
   ],
   [
     "name" => "Сделать задание первого раздела",
-    "date" => "2023-11-12",
+    "date" => "2022-12-23",
     "category" => "study",
     "status" => true,
   ],
   [
     "name" => "Встреча с другом",
-    "date" => "2021-11-12",
+    "date" => "2024-11-12",
     "category" => "inbox",
     "status" => false,
   ],

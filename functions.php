@@ -18,30 +18,25 @@
       return $tasks_sum;
   };
 
-  // $date - дата закрытия торгов по лоту 
-  // $res - функция возвращает массив 
-  
-  function get_dt_range($date) {
-
+  function deadline_checker($date) {
     date_default_timezone_set('Europe/Moscow');
+    $time_now = date_create("now");
+    $deadline = date_create($date);
 
-
-    
-
-    // $ny_date = strtotime("01.01.2222");
-
-    if($cur_date < $final_date) {
+    if ($time_now > $deadline) {
       $hours = 0;
-      print "Всё!";
+
     } else {
-      $diff = date_diff($final_date, $cur_date);
-      $format_diff = date_interval_format($diff, "%d %H %i");
-      $arr = explode(" ", $format_diff);
-      $hours = $arr[0] * 24 + $arr[1] + (intval($arr[2] / 60));
-      $hours = $hours + $minutes;
-      print($hours);
-    }
+    $diff = date_diff($time_now, $deadline);
+    
+    // Приводит временной интервал к нужному формату
+    $days_count = date_interval_format($diff, "%d %h");
+    $arr = explode(" ", $days_count);
+    $hours = floor($arr[0] * 24 + $arr[1]);
+    };
 
     return $hours;
-  };
+    
+    };
+
 ?>

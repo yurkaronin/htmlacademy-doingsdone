@@ -9,7 +9,6 @@
 
   $page_content = include_template('main.php', [
     'tasks' => $tasks,
-    // 'product_items' => $product_items,
   ]);
 
   $layout_content = include_template('layout.php', [
